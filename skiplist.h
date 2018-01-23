@@ -19,3 +19,12 @@ struct skiplist {
   unsigned long length;
   int level;
 };
+
+template<typename K>
+skipListNode* createNode(int level, K obj, double score) {
+  skipListNode* node = 
+    malloc(sizeof(*node) + level * sizeof(struct skipListLevel));
+  node->score = score;
+  node->obj = obj;
+  return node;
+}
